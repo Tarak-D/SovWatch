@@ -1,5 +1,4 @@
 streamlit==1.35.0
-torch==2.2.2
 numpy==1.26.4
 pandas==2.2.2
 plotly==5.22.0
@@ -7,11 +6,8 @@ matplotlib==3.8.4
 scikit-learn==1.4.2
 xgboost==2.0.3
 seaborn==0.13.2
-transformers==4.40.0
-torchvision==0.17.2
-torchaudio==2.2.2
-wbgapi==1.0.12
-fredapi==0.5.1
-python-dotenv==1.0.1
-tqdm==4.66.4
 requests==2.31.0
+torch==2.2.2+cpu
+torchvision==0.17.2+cpu
+torchaudio==2.2.2+cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
