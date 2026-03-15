@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\caption{Model comparison on the global sovereign debt distress dataset (188 countries, 2000--2025, country-grouped test split)}
+\label{tab:global_comparison}
+\begin{tabular}{lcccc}
+\toprule
+Model & AUROC & AUPRC & F1 & Brier \\
+\midrule
+XGBoost  & 0.8091 & 0.5346 & 0.4748 & 0.0670 \\
+LSTM-only (ablation)  & 0.8028 & 0.5003 & 0.3521 & 0.1564 \\
+Logistic Regression  & 0.7994 & 0.5045 & 0.3378 & 0.1520 \\
+Hybrid BiLSTM-GARCH-Sentiment (Ours) \textbf{(ours)} & 0.7911 & 0.4551 & 0.4398 & 0.0000 \\
+Random Forest  & 0.7768 & 0.4068 & 0.4356 & 0.0917 \\
+\bottomrule
+\end{tabular}
+\end{table}

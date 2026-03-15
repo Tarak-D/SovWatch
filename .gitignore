@@ -1,0 +1,31 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Large model and data files
+models/best_model.pt
+data/features/*.npy
+data/features/*.pkl
+data/raw/*.csv
+data/sentiment/*.csv
+data/garch/*.csv
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment variables
+.env
+
+# R outputs
+*.Rhistory
+*.RData
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db 

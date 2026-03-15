@@ -1,0 +1,14 @@
+{
+  "n_features": 45,
+  "n_garch_feats": 8,
+  "hidden_dim": 128,
+  "n_lstm_layers": 2,
+  "dropout": 0.3,
+  "lr": 0.001,
+  "batch_size": 64,
+  "threshold": 0.4,
+  "n_countries": 188,
+  "test_auroc": 0.7911,
+  "test_auprc": 0.4551,
+  "test_f1": 0.4398
+}
