@@ -65,6 +65,7 @@ These signals are combined using a **hybrid Bidirectional LSTM deep learning mod
 
 SovWatch
 │
+
 ├── data_collection
 │   ├── 01_macro_data.py
 │   ├── 02_news_sentiment.py
