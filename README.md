@@ -1,111 +1,154 @@
-# 🌍 SovWatch — Global Sovereign Debt Early Warning System
+# 🌍 SovWatch
+## Sovereign Debt Distress Early Warning System
 
-Predicts sovereign debt crises 2 years in advance using a Hybrid BiLSTM + GJR-GARCH + FinBERT model across 188 countries (2000–2025).
+SovWatch is a machine learning system designed to predict sovereign debt distress using macroeconomic indicators, financial volatility models, and financial news sentiment.
+
+Dataset coverage:
+
+• 188 countries  
+• 2000–2025  
+• ~4300 country-year observations  
+
+## Key Features
+
+• Global sovereign distress prediction for 165 countries  
+• Hybrid deep learning model combining macroeconomic indicators, GARCH volatility, and news sentiment  
+• Interactive dashboard for monitoring sovereign risk  
+• Early-warning system for sovereign debt crises
 
 
 ---
 
-# System Overview
+## System Architecture
 
-The SovWatch pipeline integrates multiple data sources and machine learning models.
+![Architecture](images/architecture.png)
 
-World Bank + FRED macro data
-            │
-            ▼
-   Macroeconomic indicators
-            │
-            ▼
-    GARCH volatility model
-            │
-            ▼
- Financial news sentiment
-      (FinBERT + GDELT)
-            │
-            ▼
-      Feature engineering
-            │
-            ▼
-     5-year sequences
-            │
-            ▼
-     Hybrid BiLSTM model
-            │
-            ▼
- Sovereign distress probability
+The system integrates three main signal sources:
 
+1. Macroeconomic indicators (World Bank WDI + FRED)
+2. Financial volatility modeling using GARCH
+3. Financial news sentiment using FinBERT
 
-## Architecture
-- **BiLSTM** — reads 5-year economic sequences bidirectionally
-- **GJR-GARCH** — bond market volatility with skip connection
-- **FinBERT** — financial news sentiment scoring
+These signals are combined using a **hybrid Bidirectional LSTM deep learning model**.
 
+---
 
-Input sequence (5 years × 40+ features)
-│
-▼
-BiLSTM layers
-│
-▼
-Attention / feature fusion
-│
-▼
-Dense prediction layer
-│
-▼
-Distress probability (0–1)
+## Model Performance
 
+| Model | AUROC | AUPRC | F1 |
+|------|------|------|------|
+| Hybrid BiLSTM (SovWatch) | 0.79 | 0.45 | 0.44 |
+| XGBoost | 0.81 | 0.53 | 0.47 |
+| Random Forest | 0.78 | 0.41 | 0.43 |
+| Logistic Regression | 0.80 | 0.50 | 0.34 |
 
+---
 
-## Features
-- 188 countries across all income groups
-- 40+ macroeconomic, volatility, and sentiment features
-- Interactive Streamlit dashboard with country selector and year slider
-- AUROC 0.79 — outperforms XGBoost, Random Forest, Logistic Regression
+## Dashboard
+
+### Overview
+![Dashboard](images/dashboard.png)  (images/dashboard(1).png)
+
+### Global Map
+![Global Map](images/global_map.png)
+
+### Distress Risk Gauge
+![Risk Gauge](images/risk_gauge.png)
+
+### Model ROC Curve
+![ROC](images/roc_curve.png)
+
+---
 
 ## Project Structure
-```
-sovereign_debt/
-├── data_collection/
-│   ├── 01_macro_data.py       # World Bank + FRED data
-│   ├── 02_news_sentiment.py   # GDELT + FinBERT
-│   ├── 03_garch_volatility.R  # GJR-GARCH models
-│   └── 04_build_features.py   # Feature engineering
-├── models/
-│   ├── 05_lstm_model.py       # BiLSTM training
-│   └── 06_baselines.py        # Comparison models
-├── app.py                     # Streamlit dashboard
-└── requirements.txt
-```
 
-## How to Run
+SovWatch
+│
+├── data_collection
+│ ├── 01_macro_data.py
+│ ├── 02_news_sentiment.py
+│ └── 03_garch_volatility.R
+│
+├── models
+│ ├── lstm_model.py
+│ ├── 05_lstm_model.py
+│ └── 06_baselines.py
+│
+├── images
+│
+├── app.py
+├── requirements.txt
+└── README.md
 
-### Install dependencies
-```bash
+
+
+---
+
+## Installation
+
+Clone the repository:
+
+git clone https://github.com/Tarak-D/SovWatch.git
+
+cd SovWatch
+
+Install dependencies:
+
 pip install -r requirements.txt
-```
 
-### Run the pipeline (in order)
-```bash
-python data_collection/01_macro_data.py
-python data_collection/02_news_sentiment.py
-Rscript data_collection/03_garch_volatility.R
-python data_collection/04_build_features.py
-python models/05_lstm_model.py
-python models/06_baselines.py
-```
 
-### Launch dashboard
-```bash
+## Run Dashboard
+
 streamlit run app.py
-```
 
-## Data Sources
-- World Bank WDI — https://databank.worldbank.org
-- FRED — https://fred.stlouisfed.org
-- GDELT — https://www.gdeltproject.org
-- IMF DSA — https://www.imf.org/en/Publications/DSA
 
-## Requirements
-- Python 3.10+
-- R 4.0+ with rugarch package
-- FRED API key (free) — https://fred.stlouisfed.org/docs/api/api_key.html
+## Methodology
+
+The SovWatch system combines three signal sources:
+
+1. Macroeconomic indicators (World Bank WDI)
+2. Financial volatility modeling (GJR-GARCH)
+3. News sentiment analysis (FinBERT on GDELT headlines)
+
+These features are combined into 5-year sequences and modeled using a Bidirectional LSTM neural network.
+
+
+models/training_history.png
+models/evaluation_plots.png
+
+
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
+
+
+
+## Abstract
+
+SovWatch is a machine learning system designed to provide early warnings of sovereign debt distress. By integrating macroeconomic indicators, financial volatility measures, and news sentiment signals, the system predicts crisis probabilities across 165 countries using a hybrid BiLSTM model.
+
+
+
+---
+
+## Research Motivation
+
+Sovereign debt crises can cause severe economic disruption.  
+Traditional early-warning systems rely mostly on macroeconomic indicators.
+
+SovWatch improves prediction by combining:
+
+• macroeconomic fundamentals  
+• financial volatility signals  
+• financial news sentiment  
+• deep learning sequence models
+
+---
+
+## Future Improvements
+
+Potential extensions:
+
+• transformer-based sequence models  
+• explainability using SHAP values  
+• real-time macroeconomic updates  
+• global risk monitoring dashboards
