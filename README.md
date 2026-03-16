@@ -66,21 +66,22 @@ These signals are combined using a **hybrid Bidirectional LSTM deep learning mod
 SovWatch
 │
 ├── data_collection
-│ ├── 01_macro_data.py
-│ ├── 02_news_sentiment.py
-│ └── 03_garch_volatility.R
+│   ├── 01_macro_data.py
+│   ├── 02_news_sentiment.py
+│   ├── 03_garch_volatility.R
+│   └── 04_build_features.py
 │
 ├── models
-│ ├── lstm_model.py
-│ ├── 05_lstm_model.py
-│ └── 06_baselines.py
+│   ├── lstm_model.py
+│   ├── 05_lstm_model.py
+│   └── 06_baselines.py
 │
 ├── images
+│   └── pipeline.png
 │
 ├── app.py
 ├── requirements.txt
 └── README.md
-
 
 
 ---
