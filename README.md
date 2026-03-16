@@ -47,7 +47,8 @@ These signals are combined using a **hybrid Bidirectional LSTM deep learning mod
 ## Dashboard
 
 ### Overview
-![Dashboard](images/dashboard.png)  (images/dashboard(1).png)
+![Dashboard](images/dashboard.png)  
+![Dashboard](images/dashboard1.png)
 
 ### Global Map
 ![Global Map](images/global_map.png)
