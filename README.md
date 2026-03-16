@@ -9,31 +9,32 @@ Dataset coverage:
 • 2000–2025  
 • ~4300 country-year observations  
 
-## Key Features
+---
+
+## 🚀 Key Features
 
 • Global sovereign distress prediction for 165 countries  
 • Hybrid deep learning model combining macroeconomic indicators, GARCH volatility, and news sentiment  
-• Interactive dashboard for monitoring sovereign risk  
-• Early-warning system for sovereign debt crises
-
+• Interactive Streamlit dashboard for monitoring sovereign risk  
+• Early-warning system for sovereign debt crises  
 
 ---
 
-## System Architecture
+## 🏗 System Architecture
 
 ![Architecture](images/architecture.png)
 
 The system integrates three main signal sources:
 
-1. Macroeconomic indicators (World Bank WDI + FRED)
-2. Financial volatility modeling using GARCH
-3. Financial news sentiment using FinBERT
+1. **Macroeconomic indicators** (World Bank WDI + FRED)
+2. **Financial volatility modeling** using GARCH
+3. **Financial news sentiment** using FinBERT
 
 These signals are combined using a **hybrid Bidirectional LSTM deep learning model**.
 
 ---
 
-## Model Performance
+## 📊 Model Performance
 
 | Model | AUROC | AUPRC | F1 |
 |------|------|------|------|
@@ -44,98 +45,108 @@ These signals are combined using a **hybrid Bidirectional LSTM deep learning mod
 
 ---
 
-## Dashboard
+## 📊 Dashboard
 
 ### Overview
+
 ![Dashboard](images/dashboard.png)  
 ![Dashboard](images/dashboard1.png)
 
-### Global Map
+### Global Risk Map
+
 ![Global Map](images/global_map.png)
 
 ### Distress Risk Gauge
+
 ![Risk Gauge](images/risk_gauge.png)
 
 ### Model ROC Curve
+
 ![ROC](images/roc_curve.png)
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
-
+```
 SovWatch
 │
 ├── data_collection
-│   ├── 01_macro_data.py
-│   ├── 02_news_sentiment.py
-│   ├── 03_garch_volatility.R
-│   └── 04_build_features.py
+│ ├── 01_macro_data.py
+│ ├── 02_news_sentiment.py
+│ ├── 03_garch_volatility.R
+│ └── 04_build_features.py
 │
 ├── models
-│   ├── lstm_model.py
-│   ├── 05_lstm_model.py
-│   └── 06_baselines.py
+│ ├── lstm_model.py
+│ ├── 05_lstm_model.py
+│ └── 06_baselines.py
 │
 ├── images
-│   └── pipeline.png
+│ ├── architecture.png
+│ ├── dashboard.png
+│ ├── dashboard1.png
+│ ├── global_map.png
+│ └── roc_curve.png
 │
 ├── app.py
 ├── requirements.txt
 └── README.md
-
+```
 
 ---
 
-## Installation
+## ⚙ Installation
 
-Clone the repository:
-
+Clone the repository
+```
 git clone https://github.com/Tarak-D/SovWatch.git
-
+```
+```
 cd SovWatch
+```
 
-Install dependencies:
-
+Install dependencies
+```
 pip install -r requirements.txt
+```
 
+---
 
-## Run Dashboard
-
+## ▶ Run Dashboard
+```
 streamlit run app.py
+```
 
+---
 
-## Methodology
+## 🧠 Methodology
 
-The SovWatch system combines three signal sources:
+SovWatch combines three signal sources:
 
 1. Macroeconomic indicators (World Bank WDI)
 2. Financial volatility modeling (GJR-GARCH)
 3. News sentiment analysis (FinBERT on GDELT headlines)
 
-These features are combined into 5-year sequences and modeled using a Bidirectional LSTM neural network.
+These features are converted into **5-year temporal sequences** and modeled using a **Bidirectional LSTM neural network**.
 
-
+Training outputs include:
 models/training_history.png
 models/evaluation_plots.png
 
 
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
+---
 
-
-
-## Abstract
+## 📄 Abstract
 
 SovWatch is a machine learning system designed to provide early warnings of sovereign debt distress. By integrating macroeconomic indicators, financial volatility measures, and news sentiment signals, the system predicts crisis probabilities across 165 countries using a hybrid BiLSTM model.
 
-
-
 ---
 
-## Research Motivation
+## 🔬 Research Motivation
 
-Sovereign debt crises can cause severe economic disruption.  
+Sovereign debt crises can cause severe economic disruption.
+
 Traditional early-warning systems rely mostly on macroeconomic indicators.
 
 SovWatch improves prediction by combining:
@@ -143,15 +154,60 @@ SovWatch improves prediction by combining:
 • macroeconomic fundamentals  
 • financial volatility signals  
 • financial news sentiment  
-• deep learning sequence models
+• deep learning sequence models  
 
 ---
 
-## Future Improvements
+## 📊 Project Stats
+
+![GitHub repo size](https://img.shields.io/github/repo-size/Tarak-D/SovWatch)
+![GitHub stars](https://img.shields.io/github/stars/Tarak-D/SovWatch)
+![GitHub forks](https://img.shields.io/github/forks/Tarak-D/SovWatch)
+![GitHub issues](https://img.shields.io/github/issues/Tarak-D/SovWatch)
+![Last commit](https://img.shields.io/github/last-commit/Tarak-D/SovWatch)
+
+---
+
+## 👨‍💻 Author
+
+**Tarak D**
+
+[![GitHub](https://img.shields.io/badge/GitHub-TARAK--D-black?logo=github)](https://github.com/Tarak-D)
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Tarak%20D-blue?logo=linkedin)](https://www.linkedin.com/in/tarak-d-019392351)
+
+---
+
+## 💬 Support and Feedback
+
+1. Found a bug? Open an issue
+2. Have an idea? Start a discussion
+3. Like the project? ⭐ Star the repository
+4. Need help? Reach out via GitHub or LinkedIn
+
+---
+
+## 🌍 Impact Goals
+
+### Economic Impact
+
+• Improve early detection of sovereign debt crises  
+• Support policymakers with AI-driven risk monitoring  
+• Provide transparent sovereign risk analytics  
+
+### Research Impact
+
+• Demonstrate hybrid deep learning models for macroeconomic forecasting  
+• Combine macro + volatility + sentiment signals  
+• Enable reproducible sovereign risk prediction research  
+
+---
+
+## 🔮 Future Improvements
 
 Potential extensions:
 
 • transformer-based sequence models  
 • explainability using SHAP values  
 • real-time macroeconomic updates  
-• global risk monitoring dashboards
+• global risk monitoring dashboards  
